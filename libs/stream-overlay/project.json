@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/stream-overlay",
+  "sourceRoot": "libs/stream-overlay/src",
+  "prefix": "tau",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/stream-overlay"],
+      "options": {
+        "project": "libs/stream-overlay/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/stream-overlay/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/stream-overlay/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/stream-overlay"],
+      "options": {
+        "jestConfig": "libs/stream-overlay/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/stream-overlay/src/**/*.ts",
+          "libs/stream-overlay/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

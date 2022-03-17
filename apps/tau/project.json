@@ -1,0 +1,88 @@
+{
+  "projectType": "application",
+  "root": "apps/tau",
+  "sourceRoot": "apps/tau/src",
+  "prefix": "tau",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/tau",
+        "index": "apps/tau/src/index.html",
+        "main": "apps/tau/src/main.ts",
+        "polyfills": "apps/tau/src/polyfills.ts",
+        "tsConfig": "apps/tau/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/tau/src/favicon.ico", "apps/tau/src/assets"],
+        "styles": ["apps/tau/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/tau/src/environments/environment.ts",
+              "with": "apps/tau/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "tau:build:production"
+        },
+        "development": {
+          "browserTarget": "tau:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "tau:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/tau/src/**/*.ts", "apps/tau/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/tau"],
+      "options": {
+        "jestConfig": "apps/tau/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

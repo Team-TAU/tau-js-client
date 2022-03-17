@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "stream-overlay": "libs/stream-overlay",
+    "tau": "apps/tau",
+    "tau-e2e": "apps/tau-e2e",
+    "tau-js-client": "libs/tau-js-client"
+  }
+}

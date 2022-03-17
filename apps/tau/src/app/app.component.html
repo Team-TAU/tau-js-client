@@ -1,0 +1,5 @@
+<!-- <router-outlet></router-outlet> -->
+<p *ngFor="let msg of messages">
+  <span>~/{{ msg.author }}/ &gt;</span>
+  <tau-typing [text]="msg.message"></tau-typing>
+</p>

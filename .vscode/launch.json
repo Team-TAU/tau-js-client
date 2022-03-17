@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Test TAU JS Client",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "test:ws-ts-node"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "xxxxx",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/libs/tau-js-client/src/index.ts",
+      "preLaunchTask": "nx build --project tau-js-client",
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    }
+  ]
+}
