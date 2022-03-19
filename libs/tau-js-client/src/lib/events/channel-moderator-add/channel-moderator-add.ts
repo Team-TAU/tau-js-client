@@ -9,5 +9,5 @@ export class ChannelModeratorAdd extends TauEvent {
       rawTauEvent.event_data as RawChannelModeratorAddEventData
     );
   }
-  eventData: ChannelModeratorAddEventData;
+  override eventData: ChannelModeratorAddEventData;
 }

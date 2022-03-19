@@ -1,2 +1,1 @@
-export * from './channel-subscription-message'
-export * from './channel-subscription-message-filter';
+export * from './channel-subscription-message';

@@ -9,5 +9,5 @@ export class ChannelPredictionEnd extends TauEvent {
       rawTauEvent.event_data as RawChannelPredictionEndEventData
     );
   }
-  eventData: ChannelPredictionEndEventData;
+  override eventData: ChannelPredictionEndEventData;
 }

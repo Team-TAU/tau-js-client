@@ -1,2 +1,1 @@
-export * from './channel-subscribe'
-export * from './channel-subscribe-filter';
+export * from './channel-subscribe';

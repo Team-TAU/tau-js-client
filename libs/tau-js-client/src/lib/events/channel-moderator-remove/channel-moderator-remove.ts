@@ -9,5 +9,5 @@ export class ChannelModeratorRemove extends TauEvent {
       rawTauEvent.event_data as RawChannelModeratorRemoveEventData
     );
   }
-  eventData: ChannelModeratorRemoveEventData;
+  override eventData: ChannelModeratorRemoveEventData;
 }

@@ -9,5 +9,5 @@ export class ChannelChannelPointsCustomRewardUpdate extends TauEvent {
       rawTauEvent.event_data as RawChannelChannelPointsCustomRewardUpdateEventData
     );
   }
-  eventData: ChannelChannelPointsCustomRewardUpdateEventData;
+  override eventData: ChannelChannelPointsCustomRewardUpdateEventData;
 }

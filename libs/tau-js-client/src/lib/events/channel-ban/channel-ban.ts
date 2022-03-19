@@ -9,5 +9,5 @@ export class ChannelBan extends TauEvent {
       rawTauEvent.event_data as RawChannelBanEventData
     );
   }
-  eventData: ChannelBanEventData;
+  override eventData: ChannelBanEventData;
 }

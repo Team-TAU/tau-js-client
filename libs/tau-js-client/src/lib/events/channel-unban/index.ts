@@ -1,2 +1,1 @@
-export * from './channel-unban'
-export * from './channel-unban-filter';
+export * from './channel-unban';

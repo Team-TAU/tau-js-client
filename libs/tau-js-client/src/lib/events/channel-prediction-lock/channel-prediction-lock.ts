@@ -9,5 +9,5 @@ export class ChannelPredictionLock extends TauEvent {
       rawTauEvent.event_data as RawChannelPredictionLockEventData
     );
   }
-  eventData: ChannelPredictionLockEventData;
+  override eventData: ChannelPredictionLockEventData;
 }

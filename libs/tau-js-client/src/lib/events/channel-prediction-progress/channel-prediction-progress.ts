@@ -9,5 +9,5 @@ export class ChannelPredictionProgress extends TauEvent {
       rawTauEvent.event_data as RawChannelPredictionProgressEventData
     );
   }
-  eventData: ChannelPredictionProgressEventData;
+  override eventData: ChannelPredictionProgressEventData;
 }

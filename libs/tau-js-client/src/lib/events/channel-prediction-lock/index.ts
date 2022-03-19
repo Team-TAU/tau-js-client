@@ -1,2 +1,1 @@
-export * from './channel-prediction-lock'
-export * from './channel-prediction-lock-filter';
+export * from './channel-prediction-lock';
