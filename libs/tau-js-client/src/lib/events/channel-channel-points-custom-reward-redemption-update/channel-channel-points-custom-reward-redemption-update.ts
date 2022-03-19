@@ -5,9 +5,10 @@ import { ChannelChannelPointsCustomRewardRedemptionUpdateEventData } from './cha
 export class ChannelChannelPointsCustomRewardRedemptionUpdate extends TauEvent {
   constructor(rawTauEvent: RawTauEvent) {
     super(rawTauEvent);
-    this.eventData = new ChannelChannelPointsCustomRewardRedemptionUpdateEventData(
-      rawTauEvent.event_data as RawChannelChannelPointsCustomRewardRedemptionUpdateEventData
-    );
+    this.eventData =
+      new ChannelChannelPointsCustomRewardRedemptionUpdateEventData(
+        rawTauEvent.event_data as RawChannelChannelPointsCustomRewardRedemptionUpdateEventData
+      );
   }
-  eventData: ChannelChannelPointsCustomRewardRedemptionUpdateEventData;
+  override eventData: ChannelChannelPointsCustomRewardRedemptionUpdateEventData;
 }

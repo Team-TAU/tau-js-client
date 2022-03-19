@@ -1,2 +1,1 @@
-export * from './channel-follow'
-export * from './channel-follow-filter';
+export * from './channel-follow';

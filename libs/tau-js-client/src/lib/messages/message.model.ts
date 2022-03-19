@@ -30,7 +30,35 @@ export interface RawEmote {
   positions: [number, number][];
 }
 
-export interface TauMessage {
+export class TauMessage {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(raw: RawTauMessage | any) {
+    const badges = mapBadges(raw.tags.badges);
+    this.id = raw.id;
+    this.tags = {
+      badgeInfo: raw.tags['badge-info'],
+      clientNonce: raw.tags['client-nonce'],
+      color: raw.tags.color,
+      displayName: raw.tags['display-name'],
+      emotes: (raw.tags.emotes || []).map(mapEmote),
+      isFirstMsg: parseBoolean(raw.tags['first-msg']),
+      flags: raw.tags.flags,
+      id: raw.tags.id,
+      isBroadcaster: badges.includes('broadcaster'),
+      isPremium: badges.includes('premium'),
+      isModerator: parseBoolean(raw.tags.mod),
+      roomId: raw.tags['room-id'],
+      isSubscriber: parseBoolean(raw.tags.subscriber),
+      tmiSentTs: raw.tags['tmi-sent-ts'],
+      isTurbo: parseBoolean(raw.tags.turbo),
+      userId: raw.tags['user-id'],
+      userType: raw.tags['user-type'],
+    };
+    this.prefix = raw.prefix;
+    this.command = raw.command;
+    this.params = raw.params;
+    this.messageText = raw['message-text'];
+  }
   id: string;
   tags: TauMessageTags;
   prefix: string;
@@ -70,33 +98,32 @@ export interface Emote {
   }[];
 }
 
-/*
-{
-  "tags": {
-    "badge-info": "subscriber/1",
-    "badges": "broadcaster/1,subscriber/0,premium/1",
-    "client-nonce": "6e6977bbbf5b62e265abcc2af7a10a59",
-    "color": "#FF4500",
-    "display-name": "BroccoDev",
-    "emotes": [],
-    "first-msg": "0",
-    "flags": "",
-    "id": "da8eb2f6-95a1-4125-a2fd-ba66dfe01b85",
-    "mod": "0",
-    "room-id": "143178148",
-    "subscriber": "1",
-    "tmi-sent-ts": "1646452235789",
-    "turbo": "0",
-    "user-id": "143178148",
-    "user-type": ""
-  },
-  "prefix": ":broccodev!broccodev@broccodev.tmi.twitch.tv",
-  "command": "PRIVMSG",
-  "params": [
-    "PRIVMSG",
-    "#broccodev",
-    ":hi dad\r\n"
-  ],
-  "message-text": "hi dad"
+function mapBadges(s: string): string[] {
+  const result = s
+    .split(',')
+    .map((part) => {
+      const [badge, hasBadge] = part.split('/');
+      return { [badge]: parseBoolean(hasBadge) };
+    })
+    .filter((badge) => Object.values(badge)[0])
+    .map((badge) => Object.keys(badge)[0]);
 
-*/
+  return result;
+}
+
+function mapEmote(raw: RawEmote): Emote {
+  return {
+    id: raw.id,
+    smallUrl: `https://static-cdn.jtvnw.net/emoticons/v2/${raw.id}/default/dark/1.0`,
+    mediumUrl: `https://static-cdn.jtvnw.net/emoticons/v2/${raw.id}/default/dark/2.0`,
+    largeUrl: `https://static-cdn.jtvnw.net/emoticons/v2/${raw.id}/default/dark/3.0`,
+    positions: raw.positions.map((position) => ({
+      start: position[0],
+      end: position[1],
+    })),
+  };
+}
+
+function parseBoolean(s: string): boolean {
+  return s === '1';
+}

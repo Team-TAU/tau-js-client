@@ -28,41 +28,54 @@ import { ChannelGoalEnd } from './channel-goal-end';
 import { ChannelHypeTrainBegin } from './channel-hype-train-begin';
 import { ChannelHypeTrainProgress } from './channel-hype-train-progress';
 import { ChannelHypeTrainEnd } from './channel-hype-train-end';
+import { TauEvent } from './tau-event';
 
-export const eventConstructorMap = {
-  'channel-update': ChannelUpdate,
-  'channel-follow': ChannelFollow,
-  'channel-subscribe': ChannelSubscribe,
-  'channel-subscription-end': ChannelSubscriptionEnd,
-  'channel-subscription-gift': ChannelSubscriptionGift,
-  'channel-subscription-message': ChannelSubscriptionMessage,
-  'channel-cheer': ChannelCheer,
-  'channel-raid': ChannelRaid,
-  'channel-ban': ChannelBan,
-  'channel-unban': ChannelUnban,
-  'channel-moderator-add': ChannelModeratorAdd,
-  'channel-moderator-remove': ChannelModeratorRemove,
-  'channel-channel_points_custom_reward-add':
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Constructor<T extends TauEvent = TauEvent> = new (...args: any[]) => T;
+export const eventConstructorMap = new Map<string, Constructor>([
+  ['channel-update', ChannelUpdate],
+  ['channel-follow', ChannelFollow],
+  ['channel-subscribe', ChannelSubscribe],
+  ['channel-subscription-end', ChannelSubscriptionEnd],
+  ['channel-subscription-gift', ChannelSubscriptionGift],
+  ['channel-subscription-message', ChannelSubscriptionMessage],
+  ['channel-cheer', ChannelCheer],
+  ['channel-raid', ChannelRaid],
+  ['channel-ban', ChannelBan],
+  ['channel-unban', ChannelUnban],
+  ['channel-moderator-add', ChannelModeratorAdd],
+  ['channel-moderator-remove', ChannelModeratorRemove],
+  [
+    'channel-channel_points_custom_reward-add',
     ChannelChannelPointsCustomRewardAdd,
-  'channel-channel_points_custom_reward-update':
+  ],
+  [
+    'channel-channel_points_custom_reward-update',
     ChannelChannelPointsCustomRewardUpdate,
-  'channel-channel_points_custom_reward-remove':
+  ],
+  [
+    'channel-channel_points_custom_reward-remove',
     ChannelChannelPointsCustomRewardRemove,
-  'channel-channel_points_custom_reward_redemption-add':
+  ],
+  [
+    'channel-channel_points_custom_reward_redemption-add',
     ChannelChannelPointsCustomRewardRedemptionAdd,
-  'channel-channel_points_custom_reward_redemption-update':
+  ],
+  [
+    'channel-channel_points_custom_reward_redemption-update',
     ChannelChannelPointsCustomRewardRedemptionUpdate,
-  'channel-poll-begin': ChannelPollBegin,
-  'channel-poll-progress': ChannelPollProgress,
-  'channel-poll-end': ChannelPollEnd,
-  'channel-prediction-begin': ChannelPredictionBegin,
-  'channel-prediction-progress': ChannelPredictionProgress,
-  'channel-prediction-lock': ChannelPredictionLock,
-  'channel-prediction-end': ChannelPredictionEnd,
-  'channel-goal-begin': ChannelGoalBegin,
-  'channel-goal-progress': ChannelGoalProgress,
-  'channel-goal-end': ChannelGoalEnd,
-  'channel-hype_train-begin': ChannelHypeTrainBegin,
-  'channel-hype_train-progress': ChannelHypeTrainProgress,
-  'channel-hype_train-end': ChannelHypeTrainEnd,
-};
+  ],
+  ['channel-poll-begin', ChannelPollBegin],
+  ['channel-poll-progress', ChannelPollProgress],
+  ['channel-poll-end', ChannelPollEnd],
+  ['channel-prediction-begin', ChannelPredictionBegin],
+  ['channel-prediction-progress', ChannelPredictionProgress],
+  ['channel-prediction-lock', ChannelPredictionLock],
+  ['channel-prediction-end', ChannelPredictionEnd],
+  ['channel-goal-begin', ChannelGoalBegin],
+  ['channel-goal-progress', ChannelGoalProgress],
+  ['channel-goal-end', ChannelGoalEnd],
+  ['channel-hype_train-begin', ChannelHypeTrainBegin],
+  ['channel-hype_train-progress', ChannelHypeTrainProgress],
+  ['channel-hype_train-end', ChannelHypeTrainEnd],
+]);

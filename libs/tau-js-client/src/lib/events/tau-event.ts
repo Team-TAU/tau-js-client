@@ -34,7 +34,7 @@ export abstract class TauEvent {
     this.created = parseDate(rawTauEvent.created);
     this.origin = rawTauEvent.origin;
   }
-  id: string;
+  id?: string;
   eventId: string;
   eventType: string;
   eventSource: string;

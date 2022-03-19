@@ -9,5 +9,5 @@ export class ChannelUpdate extends TauEvent {
       rawTauEvent.event_data as RawChannelUpdateEventData
     );
   }
-  eventData: ChannelUpdateEventData;
+  override eventData: ChannelUpdateEventData;
 }

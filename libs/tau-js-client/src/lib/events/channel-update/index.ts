@@ -1,2 +1,1 @@
-export * from './channel-update'
-export * from './channel-update-filter';
+export * from './channel-update';

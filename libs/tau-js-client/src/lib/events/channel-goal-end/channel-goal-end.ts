@@ -9,5 +9,5 @@ export class ChannelGoalEnd extends TauEvent {
       rawTauEvent.event_data as RawChannelGoalEndEventData
     );
   }
-  eventData: ChannelGoalEndEventData;
+  override eventData: ChannelGoalEndEventData;
 }

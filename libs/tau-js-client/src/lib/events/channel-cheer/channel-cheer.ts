@@ -9,5 +9,5 @@ export class ChannelCheer extends TauEvent {
       rawTauEvent.event_data as RawChannelCheerEventData
     );
   }
-  eventData: ChannelCheerEventData;
+  override eventData: ChannelCheerEventData;
 }

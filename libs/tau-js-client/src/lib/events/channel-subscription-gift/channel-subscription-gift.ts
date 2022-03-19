@@ -9,5 +9,5 @@ export class ChannelSubscriptionGift extends TauEvent {
       rawTauEvent.event_data as RawChannelSubscriptionGiftEventData
     );
   }
-  eventData: ChannelSubscriptionGiftEventData;
+  override eventData: ChannelSubscriptionGiftEventData;
 }

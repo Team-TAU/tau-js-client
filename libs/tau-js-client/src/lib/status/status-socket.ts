@@ -1,23 +1,29 @@
 import { map, Observable } from 'rxjs';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import * as WebSocket from 'ws';
+import { webSocket as rxjsWebSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { TauConfig } from '../tau-js-client';
+import { buildUrlBase, getWsBaseConfig } from '../utils';
 import { RawTauStatus, TauStatus } from './status.model';
 
+type StatusSocketSubject = RawTauStatus | { token: string };
+
 export function createStatusWebSocket(
-  statusUrl: string,
-  token: string
+  config: TauConfig
 ): Observable<TauStatus> {
-  const statusWebSocket: WebSocketSubject<RawTauStatus | { token: string }> =
-    webSocket<RawTauStatus>({
-      url: statusUrl,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      WebSocketCtor: WebSocket as any,
-      // closeObserver: closeSubject,
+  const url = `${buildUrlBase(config.domain, config.port)}tau-status/`;
+
+  const wsConfig = getWsBaseConfig<StatusSocketSubject>(
+    url,
+    config.WebSocketCtor
+  );
+
+  const statusWebSocket: WebSocketSubject<StatusSocketSubject> =
+    rxjsWebSocket<StatusSocketSubject>({
+      ...wsConfig,
       openObserver: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        next: () => statusWebSocket.next({ token: token }),
+        next: () => statusWebSocket.next({ token: config.token }),
       },
     });
+
   const status$ = statusWebSocket.pipe(
     map((msg) => {
       return msg as TauStatus;

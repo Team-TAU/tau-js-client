@@ -9,5 +9,5 @@ export class ChannelRaid extends TauEvent {
       rawTauEvent.event_data as RawChannelRaidEventData
     );
   }
-  eventData: ChannelRaidEventData;
+  override eventData: ChannelRaidEventData;
 }

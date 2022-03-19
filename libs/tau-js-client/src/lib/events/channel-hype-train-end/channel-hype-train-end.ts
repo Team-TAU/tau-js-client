@@ -9,5 +9,5 @@ export class ChannelHypeTrainEnd extends TauEvent {
       rawTauEvent.event_data as RawChannelHypeTrainEndEventData
     );
   }
-  eventData: ChannelHypeTrainEndEventData;
+  override eventData: ChannelHypeTrainEndEventData;
 }
