@@ -28,6 +28,7 @@ export * from './channel-subscription-gift';
 export * from './channel-subscription-message';
 export * from './channel-unban';
 export * from './channel-update';
+export * from './tau-event';
 // event-constructor-map.ts
 // event-socket.ts
 // index.ts
