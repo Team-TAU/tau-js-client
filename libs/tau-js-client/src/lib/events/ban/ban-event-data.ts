@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelBanEventData } from './raw-channel-ban-event-data';
+import { RawBanEventData } from './raw-ban-event-data';
 
 /**
  * A viewer is banned from the specified channel.
  */
-export class ChannelBanEventData {
-  constructor(raw: RawChannelBanEventData) {
+export class BanEventData {
+  constructor(raw: RawBanEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
