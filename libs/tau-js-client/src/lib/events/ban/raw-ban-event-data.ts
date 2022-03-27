@@ -1,7 +1,7 @@
 /**
  * A viewer is banned from the specified channel.
  */
-export interface RawChannelBanEventData {
+export interface RawBanEventData {
   /**
    * The requested broadcaster ID.
    */
