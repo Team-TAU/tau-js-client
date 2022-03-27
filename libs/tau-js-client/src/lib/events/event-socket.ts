@@ -1,4 +1,5 @@
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { webSocket as rxjsWebSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { RawTauEvent, TauEvent } from './tau-event';
 import { eventConstructorMap } from './event-constructor-map';
