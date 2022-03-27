@@ -1,7 +1,7 @@
 /**
  * A custom channel points reward has been created for the specified channel.
  */
-export interface RawChannelChannelPointsCustomRewardAddEventData {
+export interface RawChannelPointRewardAddEventData {
   /**
    * Custom background color for the reward. Format: Hex with # prefix. Example:#FA1ED2.
    */
