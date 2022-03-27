@@ -9,36 +9,39 @@ import {
   take,
 } from 'rxjs';
 
+export interface TypingSegment {
+  type: 'text' | 'img';
+  value: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class TypingService {
-  typeText(duration = 2000): OperatorFunction<string, string> {
+  typeText(
+    duration = 2000
+  ): OperatorFunction<TypingSegment[], TypingSegment[]> {
     return pipe(
-      map((text) => text.split('')),
-      switchMap((chars) => {
-        const delayTime = this.getDelay(duration, chars.length);
+      switchMap((allSegments) => {
+        const delayTime = this.getDelay(duration, allSegments.length);
 
         return interval(delayTime).pipe(
-          take(chars.length),
-          map((idx) => chars[idx]),
-          scan((text, char) => (text += char), '')
+          take(allSegments.length),
+          map((idx) => allSegments[idx]),
+          scan((segments, segment) => {
+            return [...segments, segment];
+          }, [] as TypingSegment[])
         );
       })
     );
   }
 
   private getDelay(duration: number, length: number): number {
-    const minDelay = 25;
     const maxDelay = 125;
     let delayTime = duration / length;
-    if (delayTime < minDelay) {
-      delayTime = minDelay;
-    }
     if (delayTime > maxDelay) {
       delayTime = maxDelay;
     }
-    console.log(`delay: ${delayTime}`);
     return delayTime;
   }
 }

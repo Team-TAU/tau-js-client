@@ -1,5 +1,9 @@
 <!-- <router-outlet></router-outlet> -->
-<p *ngFor="let msg of messages">
-  <span>~/{{ msg.author }}/ &gt;</span>
-  <tau-typing [text]="msg.message"></tau-typing>
-</p>
+<div class="chat-container">
+  <div class="chat-message" *ngFor="let msg of messages$ | async">
+    <span [style.color]="msg.color">🥦 /home/{{ msg.author }}</span>
+    <tau-typing [display]="msg.message" size="large"> </tau-typing>
+  </div>
+</div>
+<!-- <span #rawMessage></span>
+<img [src]="imgSrc" alt="" /> -->

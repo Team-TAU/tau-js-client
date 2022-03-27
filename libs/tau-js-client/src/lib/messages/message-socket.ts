@@ -11,7 +11,6 @@ export function createMessageWebSocket(
   config: TauConfig
 ): Observable<TauMessage> {
   const url = `${buildUrlBase(config.domain, config.port)}irc-messages/`;
-
   const wsConfig = getWsBaseConfig<MessageSocketSubject>(
     url,
     config.WebSocketCtor
@@ -19,6 +18,7 @@ export function createMessageWebSocket(
 
   messageWebSocket = rxjsWebSocket({
     ...wsConfig,
+    serializer: (msg) => (typeof msg === 'string' ? msg : JSON.stringify(msg)),
     openObserver: {
       next: () => messageWebSocket.next({ token: config.token }),
     },

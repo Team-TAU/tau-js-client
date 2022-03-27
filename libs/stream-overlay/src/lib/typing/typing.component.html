@@ -1,2 +1,7 @@
-<span>{{ displayText$ | async }}</span>
+<ng-container *ngFor="let segment of displayText$ | async">
+  <ng-container *ngIf="segment.type === 'text'">{{
+    segment.value
+  }}</ng-container>
+  <img *ngIf="segment.type === 'img'" [src]="segment.value" />
+</ng-container>
 <span class="cursor" *ngIf="showCursor"></span>
