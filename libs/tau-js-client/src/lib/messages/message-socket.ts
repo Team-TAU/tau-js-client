@@ -1,5 +1,6 @@
 import { RawTauMessage, TauMessage } from './message.model';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { webSocket as rxjsWebSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { buildUrlBase, getWsBaseConfig } from '../utils';
 import { TauConfig } from '../tau-js-client';
