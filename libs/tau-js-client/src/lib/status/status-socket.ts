@@ -1,14 +1,14 @@
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { webSocket as rxjsWebSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { TauConfig } from '../tau-js-client';
+import { TauStatusConfig } from '../tau-js-client';
 import { buildUrlBase, getWsBaseConfig } from '../utils';
 import { RawTauStatus, TauStatus } from './status.model';
 
-type StatusSocketSubject = RawTauStatus | { token: string };
+type StatusSocketSubject = RawTauStatus | { token: string; };
 
 export function createStatusWebSocket(
-  config: TauConfig
+  config: TauStatusConfig
 ): Observable<TauStatus> {
   const url = `${buildUrlBase(config.domain, config.port)}tau-status/`;
 

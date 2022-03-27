@@ -1,3 +1,5 @@
+import { TauMessage } from '../tau-js-client.model';
+
 export interface RawTauMessage {
   id: string;
   tags: RawTauMessageTags;
@@ -30,9 +32,10 @@ export interface RawEmote {
   positions: [number, number][];
 }
 
-export class TauMessage {
+export class TauChatMessage extends TauMessage {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(raw: RawTauMessage | any) {
+    super(raw.id);
     const badges = mapBadges(raw.tags.badges);
     this.id = raw.id;
     this.tags = {
@@ -59,7 +62,6 @@ export class TauMessage {
     this.params = raw.params;
     this.messageText = raw['message-text'];
   }
-  id: string;
   tags: TauMessageTags;
   prefix: string;
   command: 'PRIVMSG';
