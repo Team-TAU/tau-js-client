@@ -1,16 +1,16 @@
-import { RawTauMessage, TauMessage } from './message.model';
+import { RawTauMessage, TauChatMessage } from './message.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { webSocket as rxjsWebSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { buildUrlBase, getWsBaseConfig } from '../utils';
 import { TauConfig } from '../tau-js-client';
 
-type MessageSocketSubject = RawTauMessage | string | { token: string };
+type MessageSocketSubject = RawTauMessage | string | { token: string; };
 
 let messageWebSocket: WebSocketSubject<MessageSocketSubject>;
 export function createMessageWebSocket(
   config: TauConfig
-): Observable<TauMessage> {
+): Observable<TauChatMessage> {
   const url = `${buildUrlBase(config.domain, config.port)}irc-messages/`;
   const wsConfig = getWsBaseConfig<MessageSocketSubject>(
     url,
@@ -26,7 +26,7 @@ export function createMessageWebSocket(
   });
 
   return messageWebSocket.pipe(
-    map((raw) => new TauMessage(raw as RawTauMessage))
+    map((raw) => new TauChatMessage(raw as RawTauMessage))
   );
 }
 

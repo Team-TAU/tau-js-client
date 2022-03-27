@@ -1,6 +1,6 @@
 import { filter, MonoTypeOperatorFunction } from 'rxjs';
-import { TauMessage } from '../messages/message.model';
+import { TauChatMessage } from '../messages/message.model';
 
-export function commandFilter(): MonoTypeOperatorFunction<TauMessage> {
+export function commandFilter(): MonoTypeOperatorFunction<TauChatMessage> {
   return filter((msg) => msg.messageText.startsWith('!'));
 }
