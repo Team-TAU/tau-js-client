@@ -1,7 +1,21 @@
+import { RawCheerEventData } from './raw-cheer-event-data';
+
 /**
  * A user cheers on the specified channel.
  */
-export interface RawChannelCheerEventData {
+export class CheerEventData {
+  constructor(raw: RawCheerEventData) {
+    this.bits = raw.bits;
+    this.broadcasterUserId = raw.broadcaster_user_id;
+    this.broadcasterUserLogin = raw.broadcaster_user_login;
+    this.broadcasterUserName = raw.broadcaster_user_name;
+    this.isAnonymous = raw.is_anonymous;
+    this.message = raw.message;
+    this.userId = raw.user_id;
+    this.userLogin = raw.user_login;
+    this.userName = raw.user_name;
+  }
+
   /**
    * The number of bits cheered.
    */
@@ -9,19 +23,19 @@ export interface RawChannelCheerEventData {
   /**
    * The requested broadcaster ID.
    */
-  broadcaster_user_id: string;
+  broadcasterUserId: string;
   /**
    * The requested broadcaster login.
    */
-  broadcaster_user_login: string;
+  broadcasterUserLogin: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcaster_user_name: string;
+  broadcasterUserName: string;
   /**
    * Whether the user cheered anonymously or not.
    */
-  is_anonymous: boolean;
+  isAnonymous: boolean;
   /**
    * The message sent with the cheer.
    */
@@ -30,15 +44,15 @@ export interface RawChannelCheerEventData {
    * The user ID for the user who cheered on the specified channel. This is null
    * ifis_anonymousis true.
    */
-  user_id: string;
+  userId: string;
   /**
    * The user login for the user who cheered on the specified channel. This is null
    * ifis_anonymousis true.
    */
-  user_login: string;
+  userLogin: string;
   /**
    * The user display name for the user who cheered on the specified channel. This is null
    * ifis_anonymousis true.
    */
-  user_name: string;
+  userName: string;
 }
