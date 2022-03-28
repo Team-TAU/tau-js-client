@@ -1,11 +1,11 @@
-import { RawChannelUpdateEventData } from './raw-channel-update-event-data';
+import { RawUpdateEventData } from './raw-update-event-data';
 
 /**
  * A broadcaster updates their channel properties e.g., category, title, mature flag,
  * broadcast, or language.
  */
-export class ChannelUpdateEventData {
-  constructor(raw: RawChannelUpdateEventData) {
+export class UpdateEventData {
+  constructor(raw: RawUpdateEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

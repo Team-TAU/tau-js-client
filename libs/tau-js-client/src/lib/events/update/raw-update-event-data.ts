@@ -2,7 +2,7 @@
  * A broadcaster updates their channel properties e.g., category, title, mature flag,
  * broadcast, or language.
  */
-export interface RawChannelUpdateEventData {
+export interface RawUpdateEventData {
   /**
    * The broadcasters user ID.
    */
