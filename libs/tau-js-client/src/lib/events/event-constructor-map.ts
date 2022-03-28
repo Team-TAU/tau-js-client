@@ -13,7 +13,7 @@ import { ChannelModeratorRemove } from './channel-moderator-remove';
 import { ChannelPointRewardAdd } from './channel-point-reward-add';
 import { ChannelChannelPointsCustomRewardUpdate } from './channel-channel-points-custom-reward-update';
 import { ChannelChannelPointsCustomRewardRemove } from './channel-channel-points-custom-reward-remove';
-import { ChannelChannelPointsCustomRewardRedemptionAdd } from './channel-channel-points-custom-reward-redemption-add';
+import { ChannelPointRewardRedemptionAdd } from './channel-point-reward-redemption-add';
 import { ChannelChannelPointsCustomRewardRedemptionUpdate } from './channel-channel-points-custom-reward-redemption-update';
 import { ChannelPollBegin } from './channel-poll-begin';
 import { ChannelPollProgress } from './channel-poll-progress';
@@ -59,7 +59,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ],
   [
     'channel-channel_points_custom_reward_redemption-add',
-    ChannelChannelPointsCustomRewardRedemptionAdd,
+    ChannelPointRewardRedemptionAdd,
   ],
   [
     'channel-channel_points_custom_reward_redemption-update',

@@ -1,6 +1,6 @@
 export * from './ban';
 export * from './channel-point-reward-add';
-export * from './channel-channel-points-custom-reward-redemption-add';
+export * from './channel-point-reward-redemption-add';
 export * from './channel-channel-points-custom-reward-redemption-update';
 export * from './channel-channel-points-custom-reward-remove';
 export * from './channel-channel-points-custom-reward-update';

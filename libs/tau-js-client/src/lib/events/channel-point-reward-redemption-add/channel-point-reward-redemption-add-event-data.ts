@@ -1,19 +1,45 @@
+import { parseDate } from '../../utils';
+import { RawChannelPointRewardRedemptionAddEventData } from './raw-channel-point-reward-redemption-add-event-data';
+
 /**
  * A viewer has redeemed a custom channel points reward on the specified channel.
  */
-export interface RawChannelChannelPointsCustomRewardRedemptionAddEventData {
+export class ChannelPointRewardRedemptionAddEventData {
+  constructor(raw: RawChannelPointRewardRedemptionAddEventData) {
+    this.broadcasterUserId = raw.broadcaster_user_id;
+    this.broadcasterUserLogin = raw.broadcaster_user_login;
+    this.broadcasterUserName = raw.broadcaster_user_name;
+    this.id = raw.id;
+    this.redeemedAt = parseDate(raw.redeemed_at);
+    this.reward = {
+      cost: raw.reward.cost,
+      id: raw.reward.id,
+      prompt: raw.reward.prompt,
+      title: raw.reward.title,
+    };
+    this.status = raw.status;
+    this.userId = raw.user_id;
+    this.userInput = raw.user_input;
+    this.userLogin = raw.user_login;
+    this.userName = raw.user_name;
+    this.userInputEmotes = (raw.user_input_emotes || []).map((emote) => ({
+      start: emote[0],
+      end: emote[1],
+    }));
+  }
+
   /**
    * The requested broadcaster ID.
    */
-  broadcaster_user_id: string;
+  broadcasterUserId: string;
   /**
    * The requested broadcaster login.
    */
-  broadcaster_user_login: string;
+  broadcasterUserLogin: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcaster_user_name: string;
+  broadcasterUserName: string;
   /**
    * The redemption identifier.
    */
@@ -21,7 +47,7 @@ export interface RawChannelChannelPointsCustomRewardRedemptionAddEventData {
   /**
    * RFC3339 timestamp of when the reward was redeemed.
    */
-  redeemed_at: string;
+  redeemedAt: Date;
   /**
    * Basic information about the reward that was redeemed, at the time it was redeemed.
    */
@@ -33,20 +59,20 @@ export interface RawChannelChannelPointsCustomRewardRedemptionAddEventData {
   /**
    * User ID of the user that redeemed the reward.
    */
-  user_id: string;
+  userId: string;
   /**
    * The user input provided. Empty string if not provided.
    */
-  user_input: string;
+  userInput: string;
   /**
    * Login of the user that redeemed the reward.
    */
-  user_login: string;
+  userLogin: string;
   /**
    * Display name of the user that redeemed the reward.
    */
-  user_name: string;
-  user_input_emotes: [];
+  userName: string;
+  userInputEmotes: UserInputEmote[];
 }
 
 /**
@@ -70,8 +96,7 @@ export interface Reward {
    */
   title: string;
 }
-
 export interface UserInputEmote {
-  id: string;
-  positions: [number, number][];
+  start: number;
+  end: number;
 }
