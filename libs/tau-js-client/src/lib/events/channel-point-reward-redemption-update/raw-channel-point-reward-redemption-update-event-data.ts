@@ -1,43 +1,19 @@
-import { parseDate } from '../../utils';
-import { RawChannelChannelPointsCustomRewardRedemptionUpdateEventData } from './raw-channel-channel-points-custom-reward-redemption-update-event-data';
-
 /**
  * A redemption of a channel points custom reward has been updated for the specified channel.
  */
-export class ChannelChannelPointsCustomRewardRedemptionUpdateEventData {
-  constructor(
-    raw: RawChannelChannelPointsCustomRewardRedemptionUpdateEventData
-  ) {
-    this.broadcasterUserId = raw.broadcaster_user_id;
-    this.broadcasterUserLogin = raw.broadcaster_user_login;
-    this.broadcasterUserName = raw.broadcaster_user_name;
-    this.id = raw.id;
-    this.redeemedAt = parseDate(raw.redeemed_at);
-    this.reward = {
-      cost: raw.reward.cost,
-      id: raw.reward.id,
-      prompt: raw.reward.prompt,
-      title: raw.reward.title,
-    };
-    this.status = raw.status;
-    this.userId = raw.user_id;
-    this.userInput = raw.user_input;
-    this.userLogin = raw.user_login;
-    this.userName = raw.user_name;
-  }
-
+export interface RawChannelPointRewardRedemptionUpdateEventData {
   /**
    * The requested broadcaster ID.
    */
-  broadcasterUserId: string;
+  broadcaster_user_id: string;
   /**
    * The requested broadcaster login.
    */
-  broadcasterUserLogin: string;
+  broadcaster_user_login: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcasterUserName: string;
+  broadcaster_user_name: string;
   /**
    * The redemption identifier.
    */
@@ -45,7 +21,7 @@ export class ChannelChannelPointsCustomRewardRedemptionUpdateEventData {
   /**
    * RFC3339 timestamp of when the reward was redeemed.
    */
-  redeemedAt: Date;
+  redeemed_at: string;
   /**
    * Basic information about the reward that was redeemed, at the time it was redeemed.
    */
@@ -57,19 +33,19 @@ export class ChannelChannelPointsCustomRewardRedemptionUpdateEventData {
   /**
    * User ID of the user that redeemed the reward.
    */
-  userId: string;
+  user_id: string;
   /**
    * The user input provided. Empty string if not provided.
    */
-  userInput: string;
+  user_input: string;
   /**
    * Login of the user that redeemed the reward.
    */
-  userLogin: string;
+  user_login: string;
   /**
    * Display name of the user that redeemed the reward.
    */
-  userName: string;
+  user_name: string;
 }
 
 /**
