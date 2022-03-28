@@ -1,4 +1,4 @@
-import { ChannelUpdate } from './channel-update';
+import { Update } from './update';
 import { Follow } from './follow';
 import { Subscribe } from './subscribe';
 import { SubscriptionEnd } from './subscription-end';
@@ -33,7 +33,7 @@ import { TauEvent } from './tau-event';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Constructor<T extends TauEvent = TauEvent> = new (...args: any[]) => T;
 export const eventConstructorMap = new Map<string, Constructor>([
-  ['channel-update', ChannelUpdate],
+  ['channel-update', Update],
   ['channel-follow', Follow],
   ['channel-subscribe', Subscribe],
   ['channel-subscription-end', SubscriptionEnd],
