@@ -1,7 +1,7 @@
 /**
  * Moderator privileges were added to a user on a specified channel.
  */
-export interface RawChannelModeratorAddEventData {
+export interface RawModeratorAddEventData {
   /**
    * The requested broadcaster ID.
    */

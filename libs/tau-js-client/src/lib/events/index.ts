@@ -12,7 +12,7 @@ export * from './goal-progress';
 export * from './hype-train-begin';
 export * from './hype-train-end';
 export * from './hype-train-progress';
-export * from './channel-moderator-add';
+export * from './moderator-add';
 export * from './channel-moderator-remove';
 export * from './channel-poll-begin';
 export * from './channel-poll-end';

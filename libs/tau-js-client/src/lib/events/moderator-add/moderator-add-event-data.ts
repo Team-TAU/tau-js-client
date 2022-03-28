@@ -1,10 +1,10 @@
-import { RawChannelModeratorAddEventData } from './raw-channel-moderator-add-event-data';
+import { RawModeratorAddEventData } from './raw-moderator-add-event-data';
 
 /**
  * Moderator privileges were added to a user on a specified channel.
  */
-export class ChannelModeratorAddEventData {
-  constructor(raw: RawChannelModeratorAddEventData) {
+export class ModeratorAddEventData {
+  constructor(raw: RawModeratorAddEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
