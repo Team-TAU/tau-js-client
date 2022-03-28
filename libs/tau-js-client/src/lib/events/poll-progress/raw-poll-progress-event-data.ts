@@ -1,7 +1,7 @@
 /**
  * Users respond to a poll on a specified channel.
  */
-export interface RawChannelPollProgressEventData {
+export interface RawPollProgressEventData {
   /**
    * The Bits voting settings for the poll.
    */

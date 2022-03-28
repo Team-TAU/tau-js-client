@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelPollProgressEventData } from './raw-channel-poll-progress-event-data';
+import { RawPollProgressEventData } from './raw-poll-progress-event-data';
 
 /**
  * Users respond to a poll on a specified channel.
  */
-export class ChannelPollProgressEventData {
-  constructor(raw: RawChannelPollProgressEventData) {
+export class PollProgressEventData {
+  constructor(raw: RawPollProgressEventData) {
     this.bitsVoting = {
       amountPerVote: raw.bits_voting.amount_per_vote,
       isEnabled: raw.bits_voting.is_enabled,
