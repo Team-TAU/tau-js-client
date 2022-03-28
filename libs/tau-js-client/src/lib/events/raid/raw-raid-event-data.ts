@@ -1,7 +1,7 @@
 /**
  * A broadcaster raids another broadcasters channel.
  */
-export interface RawChannelRaidEventData {
+export interface RawRaidEventData {
   /**
    * The broadcaster ID that created the raid.
    */

@@ -21,7 +21,7 @@ export * from './prediction-begin';
 export * from './prediction-end';
 export * from './prediction-lock';
 export * from './prediction-progress';
-export * from './channel-raid';
+export * from './raid';
 export * from './channel-subscribe';
 export * from './channel-subscription-end';
 export * from './channel-subscription-gift';

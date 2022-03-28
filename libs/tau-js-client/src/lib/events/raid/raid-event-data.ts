@@ -1,10 +1,10 @@
-import { RawChannelRaidEventData } from './raw-channel-raid-event-data';
+import { RawRaidEventData } from './raw-raid-event-data';
 
 /**
  * A broadcaster raids another broadcasters channel.
  */
-export class ChannelRaidEventData {
-  constructor(raw: RawChannelRaidEventData) {
+export class RaidEventData {
+  constructor(raw: RawRaidEventData) {
     this.fromBroadcasterUserId = raw.from_broadcaster_user_id;
     this.fromBroadcasterUserLogin = raw.from_broadcaster_user_login;
     this.fromBroadcasterUserName = raw.from_broadcaster_user_name;
