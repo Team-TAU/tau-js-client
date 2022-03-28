@@ -1,7 +1,7 @@
 /**
  * Moderator privileges were removed from a user on a specified channel.
  */
-export interface RawChannelModeratorRemoveEventData {
+export interface RawModeratorRemoveEventData {
   /**
    * The requested broadcaster ID.
    */

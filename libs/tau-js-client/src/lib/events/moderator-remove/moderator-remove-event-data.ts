@@ -1,10 +1,10 @@
-import { RawChannelModeratorRemoveEventData } from './raw-channel-moderator-remove-event-data';
+import { RawModeratorRemoveEventData } from './raw-moderator-remove-event-data';
 
 /**
  * Moderator privileges were removed from a user on a specified channel.
  */
-export class ChannelModeratorRemoveEventData {
-  constructor(raw: RawChannelModeratorRemoveEventData) {
+export class ModeratorRemoveEventData {
+  constructor(raw: RawModeratorRemoveEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

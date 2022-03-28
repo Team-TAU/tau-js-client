@@ -13,7 +13,7 @@ export * from './hype-train-begin';
 export * from './hype-train-end';
 export * from './hype-train-progress';
 export * from './moderator-add';
-export * from './channel-moderator-remove';
+export * from './moderator-remove';
 export * from './channel-poll-begin';
 export * from './channel-poll-end';
 export * from './channel-poll-progress';
