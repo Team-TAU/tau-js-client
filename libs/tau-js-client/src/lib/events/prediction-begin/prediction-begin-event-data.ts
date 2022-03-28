@@ -1,19 +1,46 @@
+import { parseDate } from '../../utils';
+import { RawPredictionBeginEventData } from './raw-prediction-begin-event-data';
+
 /**
  * A Prediction started on a specified channel.
  */
-export interface RawChannelPredictionBeginEventData {
+export class PredictionBeginEventData {
+  constructor(raw: RawPredictionBeginEventData) {
+    this.broadcasterUserId = raw.broadcaster_user_id;
+    this.broadcasterUserLogin = raw.broadcaster_user_login;
+    this.broadcasterUserName = raw.broadcaster_user_name;
+    this.id = raw.id;
+    this.locksAt = parseDate(raw.locks_at);
+    this.outcomes = (raw.outcomes || []).map((outcome) => ({
+      channelPoints: outcome.channel_points,
+      color: outcome.color,
+      id: outcome.id,
+      title: outcome.title,
+      topPredictors: (outcome.top_predictors || []).map((tp) => ({
+        channelPointsUsed: tp.channel_points_used,
+        channelPointsWon: tp.channel_points_won,
+        userId: tp.user_id,
+        userLogin: tp.user_login,
+        userName: tp.user_name,
+      })),
+      users: outcome.users,
+    }));
+    this.startedAt = parseDate(raw.started_at);
+    this.title = raw.title;
+  }
+
   /**
    * The requested broadcaster ID.
    */
-  broadcaster_user_id: string;
+  broadcasterUserId: string;
   /**
    * The requested broadcaster login.
    */
-  broadcaster_user_login: string;
+  broadcasterUserLogin: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcaster_user_name: string;
+  broadcasterUserName: string;
   /**
    * Channel Points Prediction ID.
    */
@@ -21,7 +48,7 @@ export interface RawChannelPredictionBeginEventData {
   /**
    * The time the Channel Points Prediction will automatically lock.
    */
-  locks_at: string;
+  locksAt: Date;
   /**
    * An array of outcomes for the Channel Points Prediction.
    */
@@ -29,7 +56,7 @@ export interface RawChannelPredictionBeginEventData {
   /**
    * The time the Channel Points Prediction started.
    */
-  started_at: string;
+  startedAt: Date;
   /**
    * Title for the Channel Points Prediction.
    */
@@ -40,7 +67,7 @@ export interface Outcome {
   /**
    * The total number of Channel Points used on this outcome.
    */
-  channel_points: number;
+  channelPoints: number;
   /**
    * The color for the outcome. Valid values are pink and blue.
    */
@@ -56,7 +83,7 @@ export interface Outcome {
   /**
    * An array of users who used the most Channel Points on this outcome.
    */
-  top_predictors: TopPredictor[];
+  topPredictors: TopPredictor[];
   /**
    * The number of users who used Channel Points on this outcome.
    */
@@ -67,23 +94,23 @@ export interface TopPredictor {
   /**
    * The number of Channel Points used to participate in the Prediction.
    */
-  channel_points_used: number;
+  channelPointsUsed: number;
   /**
    * The number of Channel Points won. This value is always null in the event payload for
    * Prediction progress and Prediction lock. This value is 0 if the outcome did not win or if
    * the Prediction was canceled and Channel Points were refunded.
    */
-  channel_points_won: number;
+  channelPointsWon: number;
   /**
    * The ID of the user.
    */
-  user_id: string;
+  userId: string;
   /**
    * The login of the user.
    */
-  user_login: string;
+  userLogin: string;
   /**
    * The display name of the user.
    */
-  user_name: string;
+  userName: string;
 }

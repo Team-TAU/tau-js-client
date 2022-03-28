@@ -17,7 +17,7 @@ export * from './moderator-remove';
 export * from './poll-begin';
 export * from './poll-end';
 export * from './poll-progress';
-export * from './channel-prediction-begin';
+export * from './prediction-begin';
 export * from './channel-prediction-end';
 export * from './channel-prediction-lock';
 export * from './channel-prediction-progress';
