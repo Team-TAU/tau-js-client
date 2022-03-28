@@ -20,7 +20,7 @@ export * from './poll-progress';
 export * from './prediction-begin';
 export * from './prediction-end';
 export * from './prediction-lock';
-export * from './channel-prediction-progress';
+export * from './prediction-progress';
 export * from './channel-raid';
 export * from './channel-subscribe';
 export * from './channel-subscription-end';
