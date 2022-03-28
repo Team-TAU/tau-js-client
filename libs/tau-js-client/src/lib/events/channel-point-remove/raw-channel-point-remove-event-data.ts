@@ -1,72 +1,27 @@
-import { parseDate } from '../../utils';
-import { RawChannelPointRewardAddEventData } from './raw-channel-point-reward-add-event-data';
-
 /**
- * A custom channel points reward has been created for the specified channel.
+ * A custom channel points reward has been removed from the specified channel.
  */
-export class ChannelPointRewardAddEventData {
-  constructor(raw: RawChannelPointRewardAddEventData) {
-    this.backgroundColor = raw.background_color;
-    this.broadcasterUserId = raw.broadcaster_user_id;
-    this.broadcasterUserLogin = raw.broadcaster_user_login;
-    this.broadcasterUserName = raw.broadcaster_user_name;
-    this.cooldownExpiresAt = parseDate(raw.cooldown_expires_at);
-    this.cost = raw.cost;
-    this.defaultImage = {
-      url1x: raw.default_image.url_1x,
-      url2x: raw.default_image.url_2x,
-      url4x: raw.default_image.url_4x,
-    };
-    this.globalCooldown = {
-      isEnabled: raw.global_cooldown.is_enabled,
-      seconds: raw.global_cooldown.seconds,
-    };
-    this.id = raw.id;
-    this.image = {
-      url1x: raw.image.url_1x,
-      url2x: raw.image.url_2x,
-      url4x: raw.image.url_4x,
-    };
-    this.isEnabled = raw.is_enabled;
-    this.isInStock = raw.is_in_stock;
-    this.isPaused = raw.is_paused;
-    this.isUserInputRequired = raw.is_user_input_required;
-    this.maxPerStream = {
-      isEnabled: raw.max_per_stream.is_enabled,
-      value: raw.max_per_stream.value,
-    };
-    this.maxPerUserPerStream = {
-      isEnabled: raw.max_per_user_per_stream.is_enabled,
-      value: raw.max_per_user_per_stream.value,
-    };
-    this.prompt = raw.prompt;
-    this.redemptionsRedeemedCurrentStream =
-      raw.redemptions_redeemed_current_stream;
-    this.shouldRedemptionsSkipRequestQueue =
-      raw.should_redemptions_skip_request_queue;
-    this.title = raw.title;
-  }
-
+export interface RawChannelPointRemoveEventData {
   /**
    * Custom background color for the reward. Format: Hex with # prefix. Example:#FA1ED2.
    */
-  backgroundColor: string;
+  background_color: string;
   /**
    * The requested broadcaster ID.
    */
-  broadcasterUserId: string;
+  broadcaster_user_id: string;
   /**
    * The requested broadcaster login.
    */
-  broadcasterUserLogin: string;
+  broadcaster_user_login: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcasterUserName: string;
+  broadcaster_user_name: string;
   /**
    * Timestamp of the cooldown expiration.nullif the reward isnt on cooldown.
    */
-  cooldownExpiresAt: Date;
+  cooldown_expires_at: string;
   /**
    * The reward cost.
    */
@@ -74,11 +29,11 @@ export class ChannelPointRewardAddEventData {
   /**
    * Set of default images of 1x, 2x and 4x sizes for the reward.
    */
-  defaultImage: DefaultImage;
+  default_image: DefaultImage;
   /**
    * Whether a cooldown is enabled and what the cooldown is in seconds.
    */
-  globalCooldown: GlobalCooldown;
+  global_cooldown: GlobalCooldown;
   /**
    * The reward identifier.
    */
@@ -91,27 +46,27 @@ export class ChannelPointRewardAddEventData {
   /**
    * Is the reward currently enabled. If false, the reward wont show up to viewers.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
   /**
    * Is the reward currently in stock. If false, viewers cant redeem.
    */
-  isInStock: boolean;
+  is_in_stock: boolean;
   /**
    * Is the reward currently paused. If true, viewers cant redeem.
    */
-  isPaused: boolean;
+  is_paused: boolean;
   /**
    * Does the viewer need to enter information when redeeming the reward.
    */
-  isUserInputRequired: boolean;
+  is_user_input_required: boolean;
   /**
    * Whether a maximum per stream is enabled and what the maximum is.
    */
-  maxPerStream: MaxPerStream;
+  max_per_stream: MaxPerStream;
   /**
    * Whether a maximum per user per stream is enabled and what the maximum is.
    */
-  maxPerUserPerStream: MaxPerUserPerStream;
+  max_per_user_per_stream: MaxPerUserPerStream;
   /**
    * The reward description.
    */
@@ -121,12 +76,12 @@ export class ChannelPointRewardAddEventData {
    * themax_per_streamlimit.nullif the broadcasters stream isnt live ormax_per_streamisnt
    * enabled.
    */
-  redemptionsRedeemedCurrentStream: number;
+  redemptions_redeemed_current_stream: number;
   /**
    * Should redemptions be set tofulfilledstatus immediately when redeemed and skip the
    * request queue instead of the normalunfulfilledstatus.
    */
-  shouldRedemptionsSkipRequestQueue: boolean;
+  should_redemptions_skip_request_queue: boolean;
   /**
    * The reward title.
    */
@@ -140,15 +95,15 @@ export interface DefaultImage {
   /**
    * URL for the image at 1x size.
    */
-  url1x: string;
+  url_1x: string;
   /**
    * URL for the image at 2x size.
    */
-  url2x: string;
+  url_2x: string;
   /**
    * URL for the image at 4x size.
    */
-  url4x: string;
+  url_4x: string;
 }
 
 /**
@@ -158,7 +113,7 @@ export interface GlobalCooldown {
   /**
    * Is the setting enabled.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
   /**
    * The cooldown in seconds.
    */
@@ -173,15 +128,15 @@ export interface Image {
   /**
    * URL for the image at 1x size.
    */
-  url1x: string;
+  url_1x: string;
   /**
    * URL for the image at 2x size.
    */
-  url2x: string;
+  url_2x: string;
   /**
    * URL for the image at 4x size.
    */
-  url4x: string;
+  url_4x: string;
 }
 
 /**
@@ -191,7 +146,7 @@ export interface MaxPerStream {
   /**
    * Is the setting enabled.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
   /**
    * The max per stream limit.
    */
@@ -205,7 +160,7 @@ export interface MaxPerUserPerStream {
   /**
    * Is the setting enabled.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
   /**
    * The max per user per stream limit.
    */
