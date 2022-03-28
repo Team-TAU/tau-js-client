@@ -1,11 +1,11 @@
-import { RawChannelSubscriptionGiftEventData } from './raw-channel-subscription-gift-event-data';
+import { RawSubscriptionGiftEventData } from './raw-subscription-gift-event-data';
 
 /**
  * A notification when a viewer gives a gift subscription to one or more users in the
  * specified channel.
  */
-export class ChannelSubscriptionGiftEventData {
-  constructor(raw: RawChannelSubscriptionGiftEventData) {
+export class SubscriptionGiftEventData {
+  constructor(raw: RawSubscriptionGiftEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

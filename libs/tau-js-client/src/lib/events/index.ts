@@ -24,7 +24,7 @@ export * from './prediction-progress';
 export * from './raid';
 export * from './subscribe';
 export * from './subscription-end';
-export * from './channel-subscription-gift';
+export * from './subscription-gift';
 export * from './channel-subscription-message';
 export * from './channel-unban';
 export * from './channel-update';
