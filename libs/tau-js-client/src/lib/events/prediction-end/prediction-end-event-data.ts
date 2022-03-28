@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelPredictionEndEventData } from './raw-channel-prediction-end-event-data';
+import { RawPredictionEndEventData } from './raw-prediction-end-event-data';
 
 /**
  * A Prediction ended on a specified channel.
  */
-export class ChannelPredictionEndEventData {
-  constructor(raw: RawChannelPredictionEndEventData) {
+export class PredictionEndEventData {
+  constructor(raw: RawPredictionEndEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
