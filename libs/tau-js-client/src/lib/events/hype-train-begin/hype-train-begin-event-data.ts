@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelHypeTrainBeginEventData } from './raw-channel-hype-train-begin-event-data';
+import { RawHypeTrainBeginEventData } from './raw-hype-train-begin-event-data';
 
 /**
  * A Hype Train begins on the specified channel.
  */
-export class ChannelHypeTrainBeginEventData {
-  constructor(raw: RawChannelHypeTrainBeginEventData) {
+export class HypeTrainBeginEventData {
+  constructor(raw: RawHypeTrainBeginEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
