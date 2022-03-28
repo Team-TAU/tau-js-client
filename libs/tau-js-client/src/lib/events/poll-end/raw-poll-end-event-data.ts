@@ -1,56 +1,27 @@
-import { parseDate } from '../../utils';
-import { RawChannelPollEndEventData } from './raw-channel-poll-end-event-data';
-
 /**
  * A poll ended on a specified channel.
  */
-export class ChannelPollEndEventData {
-  constructor(raw: RawChannelPollEndEventData) {
-    this.bitsVoting = {
-      amountPerVote: raw.bits_voting.amount_per_vote,
-      isEnabled: raw.bits_voting.is_enabled,
-    };
-    this.broadcasterUserId = raw.broadcaster_user_id;
-    this.broadcasterUserLogin = raw.broadcaster_user_login;
-    this.broadcasterUserName = raw.broadcaster_user_name;
-    this.channelPointsVoting = {
-      amountPerVote: raw.channel_points_voting.amount_per_vote,
-      isEnabled: raw.channel_points_voting.is_enabled,
-    };
-    this.choices = (raw.choices || []).map((choice) => ({
-      bitsVotes: choice.bits_votes,
-      channelPointsVotes: choice.channel_points_votes,
-      id: choice.id,
-      title: choice.title,
-      votes: choice.votes,
-    }));
-    this.endedAt = parseDate(raw.ended_at);
-    this.id = raw.id;
-    this.startedAt = parseDate(raw.started_at);
-    this.status = raw.status;
-    this.title = raw.title;
-  }
-
+export interface RawPollEndEventData {
   /**
    * The Bits voting settings for the poll.
    */
-  bitsVoting: BitsVoting;
+  bits_voting: BitsVoting;
   /**
    * The requested broadcaster ID.
    */
-  broadcasterUserId: string;
+  broadcaster_user_id: string;
   /**
    * The requested broadcaster login.
    */
-  broadcasterUserLogin: string;
+  broadcaster_user_login: string;
   /**
    * The requested broadcaster display name.
    */
-  broadcasterUserName: string;
+  broadcaster_user_name: string;
   /**
    * The Channel Points voting settings for the poll.
    */
-  channelPointsVoting: ChannelPointsVoting;
+  channel_points_voting: ChannelPointsVoting;
   /**
    * An array of choices for the poll. Includes vote counts.
    */
@@ -58,7 +29,7 @@ export class ChannelPollEndEventData {
   /**
    * The time the poll ended.
    */
-  endedAt: Date;
+  ended_at: string;
   /**
    * ID of the poll.
    */
@@ -66,7 +37,7 @@ export class ChannelPollEndEventData {
   /**
    * The time the poll started.
    */
-  startedAt: Date;
+  started_at: string;
   /**
    * The status of the poll. Valid values are completed, archived, and terminated.
    */
@@ -84,11 +55,11 @@ export interface BitsVoting {
   /**
    * Number of Bits required to vote once with Bits.
    */
-  amountPerVote: number;
+  amount_per_vote: number;
   /**
    * Indicates if Bits can be used for voting.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
 }
 
 /**
@@ -98,22 +69,22 @@ export interface ChannelPointsVoting {
   /**
    * Number of Channel Points required to vote once with Channel Points.
    */
-  amountPerVote: number;
+  amount_per_vote: number;
   /**
    * Indicates if Channel Points can be used for voting.
    */
-  isEnabled: boolean;
+  is_enabled: boolean;
 }
 
 export interface Choice {
   /**
    * Number of votes received via Bits.
    */
-  bitsVotes: number;
+  bits_votes: number;
   /**
    * Number of votes received via Channel Points.
    */
-  channelPointsVotes: number;
+  channel_points_votes: number;
   /**
    * ID for the choice.
    */

@@ -15,7 +15,7 @@ export * from './hype-train-progress';
 export * from './moderator-add';
 export * from './moderator-remove';
 export * from './poll-begin';
-export * from './channel-poll-end';
+export * from './poll-end';
 export * from './channel-poll-progress';
 export * from './channel-prediction-begin';
 export * from './channel-prediction-end';
