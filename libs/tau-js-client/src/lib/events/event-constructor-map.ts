@@ -7,7 +7,7 @@ import { SubscriptionMessage } from './subscription-message';
 import { Cheer } from './cheer';
 import { Raid } from './raid';
 import { Ban } from './ban';
-import { ChannelUnban } from './channel-unban';
+import { Unban } from './unban';
 import { ModeratorAdd } from './moderator-add';
 import { ModeratorRemove } from './moderator-remove';
 import { ChannelPointRewardAdd } from './channel-point-reward-add';
@@ -42,7 +42,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-cheer', Cheer],
   ['channel-raid', Raid],
   ['channel-ban', Ban],
-  ['channel-unban', ChannelUnban],
+  ['channel-unban', Unban],
   ['channel-moderator-add', ModeratorAdd],
   ['channel-moderator-remove', ModeratorRemove],
   [
