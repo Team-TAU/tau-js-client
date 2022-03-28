@@ -11,7 +11,7 @@ import { ChannelUnban } from './channel-unban';
 import { ChannelModeratorAdd } from './channel-moderator-add';
 import { ChannelModeratorRemove } from './channel-moderator-remove';
 import { ChannelPointRewardAdd } from './channel-point-reward-add';
-import { ChannelChannelPointsCustomRewardUpdate } from './channel-channel-points-custom-reward-update';
+import { ChannelPointRewardUpdate } from './channel-point-reward-update';
 import { ChannelPointRewardRemove } from './channel-point-reward-remove';
 import { ChannelPointRewardRedemptionAdd } from './channel-point-reward-redemption-add';
 import { ChannelPointRewardRedemptionUpdate } from './channel-point-reward-redemption-update';
@@ -51,7 +51,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ],
   [
     'channel-channel_points_custom_reward-update',
-    ChannelChannelPointsCustomRewardUpdate,
+    ChannelPointRewardUpdate,
   ],
   [
     'channel-channel_points_custom_reward-remove',

@@ -3,7 +3,7 @@ export * from './channel-point-reward-add';
 export * from './channel-point-reward-redemption-add';
 export * from './channel-point-reward-redemption-update';
 export * from './channel-point-reward-remove';
-export * from './channel-channel-points-custom-reward-update';
+export * from './channel-point-reward-update';
 export * from './channel-cheer';
 export * from './channel-follow';
 export * from './channel-goal-begin';
