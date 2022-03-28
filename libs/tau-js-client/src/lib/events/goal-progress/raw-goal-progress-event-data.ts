@@ -2,7 +2,7 @@
  * Get notified when progress (either positive or negative) is made towards a broadcasters
  * goal.
  */
-export interface RawChannelGoalProgressEventData {
+export interface RawGoalProgressEventData {
   /**
    * The broadcasters user id.
    */

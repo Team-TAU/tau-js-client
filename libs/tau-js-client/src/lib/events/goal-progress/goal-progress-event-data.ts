@@ -1,12 +1,12 @@
 import { parseDate } from '../../utils';
-import { RawChannelGoalProgressEventData } from './raw-channel-goal-progress-event-data';
+import { RawGoalProgressEventData } from './raw-goal-progress-event-data';
 
 /**
  * Get notified when progress (either positive or negative) is made towards a broadcasters
  * goal.
  */
-export class ChannelGoalProgressEventData {
-  constructor(raw: RawChannelGoalProgressEventData) {
+export class GoalProgressEventData {
+  constructor(raw: RawGoalProgressEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
