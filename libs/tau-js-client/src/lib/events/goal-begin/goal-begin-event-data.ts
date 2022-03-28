@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelGoalBeginEventData } from './raw-channel-goal-begin-event-data';
+import { RawGoalBeginEventData } from './raw-goal-begin-event-data';
 
 /**
  * Get notified when a broadcaster begins a goal.
  */
-export class ChannelGoalBeginEventData {
-  constructor(raw: RawChannelGoalBeginEventData) {
+export class GoalBeginEventData {
+  constructor(raw: RawGoalBeginEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

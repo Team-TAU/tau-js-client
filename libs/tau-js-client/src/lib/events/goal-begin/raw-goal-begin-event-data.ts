@@ -1,7 +1,7 @@
 /**
  * Get notified when a broadcaster begins a goal.
  */
-export interface RawChannelGoalBeginEventData {
+export interface RawGoalBeginEventData {
   /**
    * The broadcasters user id.
    */

@@ -22,7 +22,7 @@ import { ChannelPredictionBegin } from './channel-prediction-begin';
 import { ChannelPredictionProgress } from './channel-prediction-progress';
 import { ChannelPredictionLock } from './channel-prediction-lock';
 import { ChannelPredictionEnd } from './channel-prediction-end';
-import { ChannelGoalBegin } from './channel-goal-begin';
+import { GoalBegin } from './goal-begin';
 import { ChannelGoalProgress } from './channel-goal-progress';
 import { ChannelGoalEnd } from './channel-goal-end';
 import { ChannelHypeTrainBegin } from './channel-hype-train-begin';
@@ -72,7 +72,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-prediction-progress', ChannelPredictionProgress],
   ['channel-prediction-lock', ChannelPredictionLock],
   ['channel-prediction-end', ChannelPredictionEnd],
-  ['channel-goal-begin', ChannelGoalBegin],
+  ['channel-goal-begin', GoalBegin],
   ['channel-goal-progress', ChannelGoalProgress],
   ['channel-goal-end', ChannelGoalEnd],
   ['channel-hype_train-begin', ChannelHypeTrainBegin],
