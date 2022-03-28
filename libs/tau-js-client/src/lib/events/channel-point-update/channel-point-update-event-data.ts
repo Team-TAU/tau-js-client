@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelPointRewardRemoveEventData } from './raw-channel-point-reward-remove-event-data';
+import { RawChannelPointUpdateEventData } from './raw-channel-point-update-event-data';
 
 /**
- * A custom channel points reward has been removed from the specified channel.
+ * A custom channel points reward has been updated for the specified channel.
  */
-export class ChannelPointRewardRemoveEventData {
-  constructor(raw: RawChannelPointRewardRemoveEventData) {
+export class ChannelPointUpdateEventData {
+  constructor(raw: RawChannelPointUpdateEventData) {
     this.backgroundColor = raw.background_color;
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;

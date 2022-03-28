@@ -1,11 +1,13 @@
 import { parseDate } from '../../utils';
-import { RawChannelPointRewardRedemptionAddEventData } from './raw-channel-point-reward-redemption-add-event-data';
+import { RawChannelPointRedemptionUpdateEventData } from './raw-channel-point-redemption-update-event-data';
 
 /**
- * A viewer has redeemed a custom channel points reward on the specified channel.
+ * A redemption of a channel points custom reward has been updated for the specified channel.
  */
-export class ChannelPointRewardRedemptionAddEventData {
-  constructor(raw: RawChannelPointRewardRedemptionAddEventData) {
+export class ChannelPointRedemptionUpdateEventData {
+  constructor(
+    raw: RawChannelPointRedemptionUpdateEventData
+  ) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
@@ -22,10 +24,6 @@ export class ChannelPointRewardRedemptionAddEventData {
     this.userInput = raw.user_input;
     this.userLogin = raw.user_login;
     this.userName = raw.user_name;
-    this.userInputEmotes = (raw.user_input_emotes || []).map((emote) => ({
-      start: emote[0],
-      end: emote[1],
-    }));
   }
 
   /**
@@ -53,7 +51,7 @@ export class ChannelPointRewardRedemptionAddEventData {
    */
   reward: Reward;
   /**
-   * Defaults tounfulfilled. Possible values areunknown,unfulfilled,fulfilled, andcanceled.
+   * Will befulfilledorcanceled. Possible values areunknown,unfulfilled,fulfilled, andcanceled.
    */
   status: string;
   /**
@@ -72,7 +70,6 @@ export class ChannelPointRewardRedemptionAddEventData {
    * Display name of the user that redeemed the reward.
    */
   userName: string;
-  userInputEmotes: UserInputEmote[];
 }
 
 /**
@@ -95,8 +92,4 @@ export interface Reward {
    * The reward name.
    */
   title: string;
-}
-export interface UserInputEmote {
-  start: number;
-  end: number;
 }

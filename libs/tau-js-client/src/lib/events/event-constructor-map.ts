@@ -10,11 +10,11 @@ import { Ban } from './ban';
 import { Unban } from './unban';
 import { ModeratorAdd } from './moderator-add';
 import { ModeratorRemove } from './moderator-remove';
-import { ChannelPointRewardAdd } from './channel-point-reward-add';
-import { ChannelPointRewardUpdate } from './channel-point-reward-update';
-import { ChannelPointRewardRemove } from './channel-point-reward-remove';
-import { ChannelPointRewardRedemptionAdd } from './channel-point-reward-redemption-add';
-import { ChannelPointRewardRedemptionUpdate } from './channel-point-reward-redemption-update';
+import { ChannelPointAdd } from './channel-point-add';
+import { ChannelPointUpdate } from './channel-point-update';
+import { ChannelPointRemove } from './channel-point-remove';
+import { ChannelPointRedemptionAdd } from './channel-point-redemption-add';
+import { ChannelPointRedemptionUpdate } from './channel-point-redemption-update';
 import { PollBegin } from './poll-begin';
 import { PollProgress } from './poll-progress';
 import { PollEnd } from './poll-end';
@@ -47,23 +47,23 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-moderator-remove', ModeratorRemove],
   [
     'channel-channel_points_custom_reward-add',
-    ChannelPointRewardAdd,
+    ChannelPointAdd,
   ],
   [
     'channel-channel_points_custom_reward-update',
-    ChannelPointRewardUpdate,
+    ChannelPointUpdate,
   ],
   [
     'channel-channel_points_custom_reward-remove',
-    ChannelPointRewardRemove,
+    ChannelPointRemove,
   ],
   [
     'channel-channel_points_custom_reward_redemption-add',
-    ChannelPointRewardRedemptionAdd,
+    ChannelPointRedemptionAdd,
   ],
   [
     'channel-channel_points_custom_reward_redemption-update',
-    ChannelPointRewardRedemptionUpdate,
+    ChannelPointRedemptionUpdate,
   ],
   ['channel-poll-begin', PollBegin],
   ['channel-poll-progress', PollProgress],

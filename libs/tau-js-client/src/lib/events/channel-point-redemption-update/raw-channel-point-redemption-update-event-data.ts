@@ -1,7 +1,7 @@
 /**
  * A redemption of a channel points custom reward has been updated for the specified channel.
  */
-export interface RawChannelPointRewardRedemptionUpdateEventData {
+export interface RawChannelPointRedemptionUpdateEventData {
   /**
    * The requested broadcaster ID.
    */
