@@ -1,7 +1,7 @@
 /**
  * A notification when a subscription to the specified channel ends.
  */
-export interface RawChannelSubscriptionEndEventData {
+export interface RawSubscriptionEndEventData {
   /**
    * The broadcaster user ID.
    */

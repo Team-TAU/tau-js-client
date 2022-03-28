@@ -1,10 +1,10 @@
-import { RawChannelSubscriptionEndEventData } from './raw-channel-subscription-end-event-data';
+import { RawSubscriptionEndEventData } from './raw-subscription-end-event-data';
 
 /**
  * A notification when a subscription to the specified channel ends.
  */
-export class ChannelSubscriptionEndEventData {
-  constructor(raw: RawChannelSubscriptionEndEventData) {
+export class SubscriptionEndEventData {
+  constructor(raw: RawSubscriptionEndEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

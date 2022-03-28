@@ -1,7 +1,7 @@
 import { ChannelUpdate } from './channel-update';
 import { Follow } from './follow';
 import { Subscribe } from './subscribe';
-import { ChannelSubscriptionEnd } from './channel-subscription-end';
+import { SubscriptionEnd } from './subscription-end';
 import { ChannelSubscriptionGift } from './channel-subscription-gift';
 import { ChannelSubscriptionMessage } from './channel-subscription-message';
 import { Cheer } from './cheer';
@@ -36,7 +36,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-update', ChannelUpdate],
   ['channel-follow', Follow],
   ['channel-subscribe', Subscribe],
-  ['channel-subscription-end', ChannelSubscriptionEnd],
+  ['channel-subscription-end', SubscriptionEnd],
   ['channel-subscription-gift', ChannelSubscriptionGift],
   ['channel-subscription-message', ChannelSubscriptionMessage],
   ['channel-cheer', Cheer],
