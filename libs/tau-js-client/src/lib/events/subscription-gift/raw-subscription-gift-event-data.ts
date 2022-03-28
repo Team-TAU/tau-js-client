@@ -2,7 +2,7 @@
  * A notification when a viewer gives a gift subscription to one or more users in the
  * specified channel.
  */
-export interface RawChannelSubscriptionGiftEventData {
+export interface RawSubscriptionGiftEventData {
   /**
    * The broadcaster user ID.
    */

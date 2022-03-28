@@ -2,7 +2,7 @@ import { ChannelUpdate } from './channel-update';
 import { Follow } from './follow';
 import { Subscribe } from './subscribe';
 import { SubscriptionEnd } from './subscription-end';
-import { ChannelSubscriptionGift } from './channel-subscription-gift';
+import { SubscriptionGift } from './subscription-gift';
 import { ChannelSubscriptionMessage } from './channel-subscription-message';
 import { Cheer } from './cheer';
 import { Raid } from './raid';
@@ -37,7 +37,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-follow', Follow],
   ['channel-subscribe', Subscribe],
   ['channel-subscription-end', SubscriptionEnd],
-  ['channel-subscription-gift', ChannelSubscriptionGift],
+  ['channel-subscription-gift', SubscriptionGift],
   ['channel-subscription-message', ChannelSubscriptionMessage],
   ['channel-cheer', Cheer],
   ['channel-raid', Raid],
