@@ -26,7 +26,7 @@ import { GoalBegin } from './goal-begin';
 import { GoalProgress } from './goal-progress';
 import { GoalEnd } from './goal-end';
 import { HypeTrainBegin } from './hype-train-begin';
-import { ChannelHypeTrainProgress } from './channel-hype-train-progress';
+import { HypeTrainProgress } from './hype-train-progress';
 import { HypeTrainEnd } from './hype-train-end';
 import { TauEvent } from './tau-event';
 
@@ -76,6 +76,6 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-goal-progress', GoalProgress],
   ['channel-goal-end', GoalEnd],
   ['channel-hype_train-begin', HypeTrainBegin],
-  ['channel-hype_train-progress', ChannelHypeTrainProgress],
+  ['channel-hype_train-progress', HypeTrainProgress],
   ['channel-hype_train-end', HypeTrainEnd],
 ]);
