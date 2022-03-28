@@ -2,7 +2,7 @@
  * A notification when a specified channel receives a subscriber. This does not include
  * resubscribes.
  */
-export interface RawChannelSubscribeEventData {
+export interface RawSubscribeEventData {
   /**
    * The requested broadcaster ID.
    */
