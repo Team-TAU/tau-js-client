@@ -8,7 +8,7 @@ export * from './cheer';
 export * from './follow';
 export * from './goal-begin';
 export * from './goal-end';
-export * from './channel-goal-progress';
+export * from './goal-progress';
 export * from './channel-hype-train-begin';
 export * from './channel-hype-train-end';
 export * from './channel-hype-train-progress';
