@@ -1,7 +1,7 @@
 /**
  * A Hype Train makes progress on the specified channel.
  */
-export interface RawChannelHypeTrainProgressEventData {
+export interface RawHypeTrainProgressEventData {
   /**
    * The requested broadcaster ID.
    */

@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelHypeTrainProgressEventData } from './raw-channel-hype-train-progress-event-data';
+import { RawHypeTrainProgressEventData } from './raw-hype-train-progress-event-data';
 
 /**
  * A Hype Train makes progress on the specified channel.
  */
-export class ChannelHypeTrainProgressEventData {
-  constructor(raw: RawChannelHypeTrainProgressEventData) {
+export class HypeTrainProgressEventData {
+  constructor(raw: RawHypeTrainProgressEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
