@@ -15,7 +15,7 @@ import { ChannelPointRewardUpdate } from './channel-point-reward-update';
 import { ChannelPointRewardRemove } from './channel-point-reward-remove';
 import { ChannelPointRewardRedemptionAdd } from './channel-point-reward-redemption-add';
 import { ChannelPointRewardRedemptionUpdate } from './channel-point-reward-redemption-update';
-import { ChannelPollBegin } from './channel-poll-begin';
+import { PollBegin } from './poll-begin';
 import { ChannelPollProgress } from './channel-poll-progress';
 import { ChannelPollEnd } from './channel-poll-end';
 import { ChannelPredictionBegin } from './channel-prediction-begin';
@@ -65,7 +65,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
     'channel-channel_points_custom_reward_redemption-update',
     ChannelPointRewardRedemptionUpdate,
   ],
-  ['channel-poll-begin', ChannelPollBegin],
+  ['channel-poll-begin', PollBegin],
   ['channel-poll-progress', ChannelPollProgress],
   ['channel-poll-end', ChannelPollEnd],
   ['channel-prediction-begin', ChannelPredictionBegin],
