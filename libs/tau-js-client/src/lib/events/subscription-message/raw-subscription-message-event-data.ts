@@ -1,50 +1,27 @@
-import { RawChannelSubscriptionMessageEventData } from './raw-channel-subscription-message-event-data';
-
 /**
  * A notification when a user sends a resubscription chat message in a specific channel.
  */
-export class ChannelSubscriptionMessageEventData {
-  constructor(raw: RawChannelSubscriptionMessageEventData) {
-    this.broadcasterUserId = raw.broadcaster_user_id;
-    this.broadcasterUserLogin = raw.broadcaster_user_login;
-    this.broadcasterUserName = raw.broadcaster_user_name;
-    this.cumulativeMonths = raw.cumulative_months;
-    this.durationMonths = raw.duration_months;
-    this.message = {
-      emotes: (raw.message.emotes || []).map((emote) => ({
-        begin: emote.begin,
-        end: emote.end,
-        id: emote.id,
-      })),
-      text: raw.message.text,
-    };
-    this.streakMonths = raw.streak_months;
-    this.tier = raw.tier;
-    this.userId = raw.user_id;
-    this.userLogin = raw.user_login;
-    this.userName = raw.user_name;
-  }
-
+export interface RawSubscriptionMessageEventData {
   /**
    * The broadcaster user ID.
    */
-  broadcasterUserId: string;
+  broadcaster_user_id: string;
   /**
    * The broadcaster login.
    */
-  broadcasterUserLogin: string;
+  broadcaster_user_login: string;
   /**
    * The broadcaster display name.
    */
-  broadcasterUserName: string;
+  broadcaster_user_name: string;
   /**
    * The total number of months the user has been subscribed to the channel.
    */
-  cumulativeMonths: number;
+  cumulative_months: number;
   /**
    * The month duration of the subscription.
    */
-  durationMonths: number;
+  duration_months: number;
   /**
    * An object that contains the resubscription message and emote information needed to
    * recreate the message.
@@ -54,7 +31,7 @@ export class ChannelSubscriptionMessageEventData {
    * The number of consecutive months the users current subscription has been active. This
    * value is null if the user has opted out of sharing this information.
    */
-  streakMonths: number;
+  streak_months: number;
   /**
    * The tier of the users subscription.
    */
@@ -62,15 +39,15 @@ export class ChannelSubscriptionMessageEventData {
   /**
    * The user ID of the user who sent a resubscription chat message.
    */
-  userId: string;
+  user_id: string;
   /**
    * The user login of the user who sent a resubscription chat message.
    */
-  userLogin: string;
+  user_login: string;
   /**
    * The user display name of the user who a resubscription chat message.
    */
-  userName: string;
+  user_name: string;
 }
 
 /**

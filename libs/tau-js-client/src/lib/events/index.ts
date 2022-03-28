@@ -25,7 +25,7 @@ export * from './raid';
 export * from './subscribe';
 export * from './subscription-end';
 export * from './subscription-gift';
-export * from './channel-subscription-message';
+export * from './subscription-message';
 export * from './channel-unban';
 export * from './channel-update';
 export * from './tau-event';
