@@ -1,10 +1,10 @@
-import { RawChannelUnbanEventData } from './raw-channel-unban-event-data';
+import { RawUnbanEventData } from './raw-unban-event-data';
 
 /**
  * A viewer is unbanned from the specified channel.
  */
-export class ChannelUnbanEventData {
-  constructor(raw: RawChannelUnbanEventData) {
+export class UnbanEventData {
+  constructor(raw: RawUnbanEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

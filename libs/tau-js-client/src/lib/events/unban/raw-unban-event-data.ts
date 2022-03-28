@@ -1,7 +1,7 @@
 /**
  * A viewer is unbanned from the specified channel.
  */
-export interface RawChannelUnbanEventData {
+export interface RawUnbanEventData {
   /**
    * The requested broadcaster ID.
    */

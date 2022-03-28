@@ -26,7 +26,7 @@ export * from './subscribe';
 export * from './subscription-end';
 export * from './subscription-gift';
 export * from './subscription-message';
-export * from './channel-unban';
+export * from './unban';
 export * from './channel-update';
 export * from './tau-event';
 // event-constructor-map.ts
