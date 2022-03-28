@@ -1,7 +1,7 @@
 /**
  * A custom channel points reward has been removed from the specified channel.
  */
-export interface RawChannelChannelPointsCustomRewardRemoveEventData {
+export interface RawChannelPointRewardRemoveEventData {
   /**
    * Custom background color for the reward. Format: Hex with # prefix. Example:#FA1ED2.
    */
