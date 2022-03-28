@@ -1,7 +1,7 @@
 /**
  * Get notified when a broadcaster ends a goal.
  */
-export interface RawChannelGoalEndEventData {
+export interface RawGoalEndEventData {
   /**
    * The broadcasters user id.
    */

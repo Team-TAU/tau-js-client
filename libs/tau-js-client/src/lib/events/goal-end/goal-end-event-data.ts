@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelGoalEndEventData } from './raw-channel-goal-end-event-data';
+import { RawGoalEndEventData } from './raw-goal-end-event-data';
 
 /**
  * Get notified when a broadcaster ends a goal.
  */
-export class ChannelGoalEndEventData {
-  constructor(raw: RawChannelGoalEndEventData) {
+export class GoalEndEventData {
+  constructor(raw: RawGoalEndEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
