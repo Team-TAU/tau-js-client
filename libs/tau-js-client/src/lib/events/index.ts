@@ -7,7 +7,7 @@ export * from './channel-point-reward-update';
 export * from './cheer';
 export * from './follow';
 export * from './goal-begin';
-export * from './channel-goal-end';
+export * from './goal-end';
 export * from './channel-goal-progress';
 export * from './channel-hype-train-begin';
 export * from './channel-hype-train-end';
