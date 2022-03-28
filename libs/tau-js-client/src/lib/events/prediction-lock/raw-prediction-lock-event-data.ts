@@ -1,7 +1,7 @@
 /**
  * A Prediction was locked on a specified channel.
  */
-export interface RawChannelPredictionLockEventData {
+export interface RawPredictionLockEventData {
   /**
    * The requested broadcaster ID.
    */

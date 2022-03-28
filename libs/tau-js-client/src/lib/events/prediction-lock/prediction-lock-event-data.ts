@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelPredictionLockEventData } from './raw-channel-prediction-lock-event-data';
+import { RawPredictionLockEventData } from './raw-prediction-lock-event-data';
 
 /**
  * A Prediction was locked on a specified channel.
  */
-export class ChannelPredictionLockEventData {
-  constructor(raw: RawChannelPredictionLockEventData) {
+export class PredictionLockEventData {
+  constructor(raw: RawPredictionLockEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
