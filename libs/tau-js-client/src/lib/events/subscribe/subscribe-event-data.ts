@@ -1,11 +1,11 @@
-import { RawChannelSubscribeEventData } from './raw-channel-subscribe-event-data';
+import { RawSubscribeEventData } from './raw-subscribe-event-data';
 
 /**
  * A notification when a specified channel receives a subscriber. This does not include
  * resubscribes.
  */
-export class ChannelSubscribeEventData {
-  constructor(raw: RawChannelSubscribeEventData) {
+export class SubscribeEventData {
+  constructor(raw: RawSubscribeEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;
