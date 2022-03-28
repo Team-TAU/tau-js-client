@@ -5,7 +5,7 @@ export * from './channel-point-reward-redemption-update';
 export * from './channel-point-reward-remove';
 export * from './channel-point-reward-update';
 export * from './cheer';
-export * from './channel-follow';
+export * from './follow';
 export * from './channel-goal-begin';
 export * from './channel-goal-end';
 export * from './channel-goal-progress';
