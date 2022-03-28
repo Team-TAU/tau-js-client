@@ -1,7 +1,7 @@
 /**
  * A Hype Train ends on the specified channel.
  */
-export interface RawChannelHypeTrainEndEventData {
+export interface RawHypeTrainEndEventData {
   /**
    * The requested broadcaster ID.
    */

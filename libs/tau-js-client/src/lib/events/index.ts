@@ -10,7 +10,7 @@ export * from './goal-begin';
 export * from './goal-end';
 export * from './goal-progress';
 export * from './hype-train-begin';
-export * from './channel-hype-train-end';
+export * from './hype-train-end';
 export * from './channel-hype-train-progress';
 export * from './channel-moderator-add';
 export * from './channel-moderator-remove';
