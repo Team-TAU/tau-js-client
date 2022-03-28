@@ -1,7 +1,7 @@
 /**
  * A Hype Train begins on the specified channel.
  */
-export interface RawChannelHypeTrainBeginEventData {
+export interface RawHypeTrainBeginEventData {
   /**
    * The requested broadcaster ID.
    */
