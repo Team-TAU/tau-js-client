@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelPredictionProgressEventData } from './raw-channel-prediction-progress-event-data';
+import { RawPredictionProgressEventData } from './raw-prediction-progress-event-data';
 
 /**
  * Users participated in a Prediction on a specified channel.
  */
-export class ChannelPredictionProgressEventData {
-  constructor(raw: RawChannelPredictionProgressEventData) {
+export class PredictionProgressEventData {
+  constructor(raw: RawPredictionProgressEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

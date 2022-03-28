@@ -1,7 +1,7 @@
 /**
  * Users participated in a Prediction on a specified channel.
  */
-export interface RawChannelPredictionProgressEventData {
+export interface RawPredictionProgressEventData {
   /**
    * The requested broadcaster ID.
    */
