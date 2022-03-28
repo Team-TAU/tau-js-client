@@ -1,7 +1,7 @@
 /**
  * A poll started on a specified channel.
  */
-export interface RawChannelPollBeginEventData {
+export interface RawPollBeginEventData {
   /**
    * The Bits voting settings for the poll.
    */
