@@ -21,7 +21,7 @@ import { PollEnd } from './poll-end';
 import { PredictionBegin } from './prediction-begin';
 import { ChannelPredictionProgress } from './channel-prediction-progress';
 import { ChannelPredictionLock } from './channel-prediction-lock';
-import { ChannelPredictionEnd } from './channel-prediction-end';
+import { PredictionEnd } from './prediction-end';
 import { GoalBegin } from './goal-begin';
 import { GoalProgress } from './goal-progress';
 import { GoalEnd } from './goal-end';
@@ -71,7 +71,7 @@ export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-prediction-begin', PredictionBegin],
   ['channel-prediction-progress', ChannelPredictionProgress],
   ['channel-prediction-lock', ChannelPredictionLock],
-  ['channel-prediction-end', ChannelPredictionEnd],
+  ['channel-prediction-end', PredictionEnd],
   ['channel-goal-begin', GoalBegin],
   ['channel-goal-progress', GoalProgress],
   ['channel-goal-end', GoalEnd],

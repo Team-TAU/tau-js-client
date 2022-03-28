@@ -1,7 +1,7 @@
 /**
  * A Prediction ended on a specified channel.
  */
-export interface RawChannelPredictionEndEventData {
+export interface RawPredictionEndEventData {
   /**
    * The requested broadcaster ID.
    */
