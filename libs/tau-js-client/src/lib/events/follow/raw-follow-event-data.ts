@@ -1,7 +1,7 @@
 /**
  * A specified channel receives a follow.
  */
-export interface RawChannelFollowEventData {
+export interface RawFollowEventData {
   /**
    * The requested broadcaster ID.
    */

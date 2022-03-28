@@ -1,11 +1,11 @@
 import { parseDate } from '../../utils';
-import { RawChannelFollowEventData } from './raw-channel-follow-event-data';
+import { RawFollowEventData } from './raw-follow-event-data';
 
 /**
  * A specified channel receives a follow.
  */
-export class ChannelFollowEventData {
-  constructor(raw: RawChannelFollowEventData) {
+export class FollowEventData {
+  constructor(raw: RawFollowEventData) {
     this.broadcasterUserId = raw.broadcaster_user_id;
     this.broadcasterUserLogin = raw.broadcaster_user_login;
     this.broadcasterUserName = raw.broadcaster_user_name;

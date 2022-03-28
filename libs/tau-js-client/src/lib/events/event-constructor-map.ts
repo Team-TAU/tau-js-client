@@ -1,5 +1,5 @@
 import { ChannelUpdate } from './channel-update';
-import { ChannelFollow } from './channel-follow';
+import { Follow } from './follow';
 import { ChannelSubscribe } from './channel-subscribe';
 import { ChannelSubscriptionEnd } from './channel-subscription-end';
 import { ChannelSubscriptionGift } from './channel-subscription-gift';
@@ -34,7 +34,7 @@ import { TauEvent } from './tau-event';
 type Constructor<T extends TauEvent = TauEvent> = new (...args: any[]) => T;
 export const eventConstructorMap = new Map<string, Constructor>([
   ['channel-update', ChannelUpdate],
-  ['channel-follow', ChannelFollow],
+  ['channel-follow', Follow],
   ['channel-subscribe', ChannelSubscribe],
   ['channel-subscription-end', ChannelSubscriptionEnd],
   ['channel-subscription-gift', ChannelSubscriptionGift],
