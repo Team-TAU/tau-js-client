@@ -1,6 +1,41 @@
 
 
 # TauClient
+This is a library to help you connect to an instance of [TAU]() from a JavaScript based project
+
+## Getting Started
+
+1. Run `npm i tau-js-client rxjs`
+   > If using in a Node.js app npm i ws
+1. Add the following to your code
+   ```javascript
+   import { filter } from 'rxjs';
+   import WebSocket from 'ws'; //if using in Node.js
+   import tauClient from 'tau-js-client';
+   const { getTauMessages, TauChatMessage } = tauClient;
+   ```
+1. Create a config object variable with the needed options shown below
+   ```javascript
+   const config = {
+     domain: '<your TAU server domain (without protocol)>',
+     port: '<your TAU server port (probably 443 if https)>',
+     token: '<your TAU server token>',
+     messages: true,
+     events: true,
+     WebSocketCtor: WebSocket,
+   };
+   ```
+1. Pass in that config to getTauMessages(config); and assign to a variable
+   ```javascript
+   const client = getTauMessages(config);
+   ```
+1. Then using observable patterns you can pipe to filter on specific events and then subscribe to them to execute a function when that event triggers. Here is an example to listen for chat messages:
+   ```javascript
+   const chatMessages = client
+     .pipe(filter((x) => x instanceof TauChatMessage))
+     .subscribe((x) => console.log(`${x.tags.displayName}: ${x.messageText}`));
+   ```
+
 
 This project was generated using [Nx](https://nx.dev).
 
