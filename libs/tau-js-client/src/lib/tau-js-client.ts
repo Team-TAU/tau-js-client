@@ -9,7 +9,7 @@ import { TauMessage } from './tau-js-client.model';
 
 export { postMessage } from './messages/message-socket';
 
-interface ConnectionConfig {
+export interface TauConnectionConfig {
   /* The url where TAU is hosted. */
   domain: string;
   /* The port number where TAU is hosted. */
@@ -21,18 +21,18 @@ interface ConnectionConfig {
    * because WebSocket is a DOM API.
    */
   WebSocketCtor?: {
-    new(url: string, protocols?: string | string[]): WebSocket;
+    new (url: string, protocols?: string | string[]): WebSocket;
   };
 }
 
-export interface TauConfig extends ConnectionConfig {
+export interface TauConfig extends TauConnectionConfig {
   /* Flag to indicate whether event messages should be emitted. */
   events?: boolean;
   /* Flag to indicate whether chat messages should be emitted. */
   messages?: boolean;
 }
 
-export type TauStatusConfig = ConnectionConfig;
+export type TauStatusConfig = TauConnectionConfig;
 
 let tauMessages$: Observable<TauMessage> | null = null;
 export function getTauMessages(config: TauConfig): Observable<TauMessage> {

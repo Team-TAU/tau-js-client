@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  domain: '',
+  token: '',
+  port: 1234,
 };
 
 /*

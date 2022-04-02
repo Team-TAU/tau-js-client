@@ -2,7 +2,8 @@
 <div class="chat-container">
   <div class="chat-message" *ngFor="let msg of messages$ | async">
     <span [style.color]="msg.color">🥦 /home/{{ msg.author }}</span>
-    <tau-typing [display]="msg.message" size="large"> </tau-typing>
+    <tau-typing [duration]="1000" [display]="msg.message" size="large">
+    </tau-typing>
   </div>
 </div>
 <!-- <span #rawMessage></span>
