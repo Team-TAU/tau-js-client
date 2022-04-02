@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
-  getTauClient,
-  postMessage,
+  getTauMessages,
+  // postMessage,
   TauMessage,
-  TauSocketMessage,
+  TauChatMessage,
 } from 'tau-js-client';
 import { environment } from '../environments/environment';
 import { TypingInput } from 'stream-overlay';
@@ -67,7 +67,7 @@ export class AppComponent {
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   constructor() {
     const env = environment;
-    this.messages$ = getTauClient({
+    this.messages$ = getTauMessages({
       token: env.token,
       domain: env.domain,
       port: env.port,
@@ -77,11 +77,11 @@ export class AppComponent {
     }).pipe(
       map((msg) => {
         return {
-          author: (msg as TauMessage).tags.displayName,
-          color: (msg as TauMessage).tags.color,
+          author: (msg as TauChatMessage).tags.displayName,
+          color: (msg as TauChatMessage).tags.color,
           message: {
-            text: (msg as TauMessage).messageText,
-            emotes: (msg as TauMessage).tags.emotes,
+            text: (msg as TauChatMessage).messageText,
+            emotes: (msg as TauChatMessage).tags.emotes,
           } as TypingInput,
         };
       }),
@@ -91,13 +91,13 @@ export class AppComponent {
           take(this.messages.length)
         )
       ),
-      tap((msg: any) => {
-        // playing with posting chat messages back through the client
-        // if (typeof msg !== 'string' && msg.message.text.startsWith('!say')) {
-        //   console.log('posting message: ' + msg.message.text);
-        //   postMessage(msg.message.text.replace('!say ', ''));
-        // }
-      }),
+      // tap((msg: any) => {
+      //   // playing with posting chat messages back through the client
+      //   // if (typeof msg !== 'string' && msg.message.text.startsWith('!say')) {
+      //   //   console.log('posting message: ' + msg.message.text);
+      //   //   postMessage(msg.message.text.replace('!say ', ''));
+      //   // }
+      // }),
       this.mostRecent(10) // only return the 10 most recent messages as an array
     );
   }

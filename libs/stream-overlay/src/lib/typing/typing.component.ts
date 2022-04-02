@@ -17,6 +17,7 @@ export type TypingInput = string | TextWithEmotes;
   encapsulation: ViewEncapsulation.None,
 })
 export class TypingComponent {
+  @Input() duration = 2000;
   display$ = new BehaviorSubject<TypingInput>('');
   emotes$ = new BehaviorSubject<Emote[]>([]);
   showCursor = false;
@@ -26,7 +27,7 @@ export class TypingComponent {
 
   displayText$ = this.displayArray$.pipe(
     tap(() => (this.showCursor = true)),
-    this.typingService.typeText(2000),
+    this.typingService.typeText(this.duration),
     combineLatestWith(this.displayArray$),
     tap(([currentSegments, allSegments]) => {
       if (currentSegments.length === allSegments.length) {
