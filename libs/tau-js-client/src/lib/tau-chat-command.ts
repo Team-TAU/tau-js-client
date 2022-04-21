@@ -43,7 +43,9 @@ export function initializeChatCommands(
     )
     .subscribe();
 
-  commands.forEach((cmd) => registerCommand(cmd));
+  if (commands) {
+    commands.forEach((cmd) => registerCommand(cmd));
+  }
 }
 
 export function registerCommand(command: ChatCommand): void {
@@ -81,7 +83,10 @@ function passesSecurity(command: ChatCommand, msg: TauChatMessage) {
   return false;
 }
 
-function hasFlag(flag1: UserRole, flag2: UserRole) {
+function hasFlag(flag1?: UserRole, flag2?: UserRole) {
+  if (!flag1 || !flag2) {
+    return false;
+  }
   return (flag1 & flag2) == flag2;
 }
 
@@ -98,7 +103,10 @@ function isInCooldown(command: ChatCommand, msg: TauChatMessage) {
   return false;
 }
 
-function updateCooldowns(command: ChatCommand, displayName: string) {
+function updateCooldowns(command: ChatCommand, displayName: string): void {
+  if (!command.cooldowns) {
+    return;
+  }
   command.cooldowns.forEach((cooldown) => {
     const now = new Date();
     now.setMinutes(now.getMinutes() + cooldown.time);

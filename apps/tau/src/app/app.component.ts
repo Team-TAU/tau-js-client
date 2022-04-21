@@ -1,22 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
   getTauMessages,
-  // postMessage,
-  TauMessage,
   TauChatMessage,
+  messageTypeFilter,
+  mostRecent,
 } from 'tau-js-client';
 import { environment } from '../environments/environment';
 import { TypingInput } from 'stream-overlay';
-import {
-  interval,
-  map,
-  mergeWith,
-  Observable,
-  OperatorFunction,
-  scan,
-  take,
-  tap,
-} from 'rxjs';
+import { interval, map, mergeWith, Observable, take } from 'rxjs';
 
 export interface MessageDetail {
   author: string;
@@ -64,7 +55,6 @@ export class AppComponent {
     },
   ];
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   constructor() {
     const env = environment;
     this.messages$ = getTauMessages({
@@ -72,16 +62,16 @@ export class AppComponent {
       domain: env.domain,
       port: env.port,
       messages: true,
-      // events: false,
-      // statuses: false,
+      events: false,
     }).pipe(
+      messageTypeFilter(TauChatMessage),
       map((msg) => {
         return {
-          author: (msg as TauChatMessage).tags.displayName,
-          color: (msg as TauChatMessage).tags.color,
+          author: msg.tags.displayName,
+          color: msg.tags.color,
           message: {
-            text: (msg as TauChatMessage).messageText,
-            emotes: (msg as TauChatMessage).tags.emotes,
+            text: msg.messageText,
+            emotes: msg.tags.emotes,
           } as TypingInput,
         };
       }),
@@ -91,24 +81,7 @@ export class AppComponent {
           take(this.messages.length)
         )
       ),
-      // tap((msg: any) => {
-      //   // playing with posting chat messages back through the client
-      //   // if (typeof msg !== 'string' && msg.message.text.startsWith('!say')) {
-      //   //   console.log('posting message: ' + msg.message.text);
-      //   //   postMessage(msg.message.text.replace('!say ', ''));
-      //   // }
-      // }),
-      this.mostRecent(10) // only return the 10 most recent messages as an array
+      mostRecent(10) // only return the 10 most recent messages as an array
     );
-  }
-
-  private mostRecent<T>(count = 10): OperatorFunction<T, T[]> {
-    return scan((all, current) => {
-      const temp = [...all, current];
-      while (temp.length >= count) {
-        temp.shift();
-      }
-      return temp;
-    }, [] as T[]);
   }
 }
