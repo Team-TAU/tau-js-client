@@ -1,6 +1,6 @@
 {
   "name": "tau-js-client",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "peerDependencies": {
     "rxjs": ">= 6 < 8"
   }
